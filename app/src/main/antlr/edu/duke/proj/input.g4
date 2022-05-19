@@ -1,23 +1,24 @@
 grammar input ;
 
-prog : (exp)* ;
+prog : exp EOF ;
 
-roll : INT ID INT ;
-
-simpleRoll  : ID INT;
-
-exp : roll
-    | value = INT
-    | simpleRoll
-    | leftExp = exp op = arithmeticOp rightExp = exp
-    | '(' exp ')'
+exp : Roll                                              # rollExp
+    | SingleRoll                                        # singleRollExp
+    | leftExp = exp op = ('*'|'/') rightExp = exp       # ArithmeticExp
+    | leftExp = exp op = ('+'|'-') rightExp = exp       # ArithmeticExp
+    | '(' exp ')'                                       # parensExp
+    | exp '?' exp ':' exp                               # conditionalExp
+    | ID                                                # varExp
+    | value = INT                                       # valueExp
     ;
 
-arithmeticOp : mul = '*'
-            | div = '/'
-            | plus = '+'
-            | minus = '-';
-
+ADD: '+';
+SUB: '-';
+MUL: '*';
+DIV: '/';
+Roll : INT KEY INT ;
+SingleRoll  : KEY INT;
 INT : [0-9]+ ;
-ID : [d] ;
+KEY : [d] ;
+ID : [a-zA-Z][0-9a-zA-Z]* ;
 WS: [ \t\r\n]+ -> skip ;

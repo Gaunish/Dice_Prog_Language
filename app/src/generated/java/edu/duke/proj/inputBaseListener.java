@@ -29,49 +29,85 @@ public class inputBaseListener implements inputListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRoll(inputParser.RollContext ctx) { }
+	@Override public void enterParensExp(inputParser.ParensExpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitRoll(inputParser.RollContext ctx) { }
+	@Override public void exitParensExp(inputParser.ParensExpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSimpleRoll(inputParser.SimpleRollContext ctx) { }
+	@Override public void enterVarExp(inputParser.VarExpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSimpleRoll(inputParser.SimpleRollContext ctx) { }
+	@Override public void exitVarExp(inputParser.VarExpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExp(inputParser.ExpContext ctx) { }
+	@Override public void enterRollExp(inputParser.RollExpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExp(inputParser.ExpContext ctx) { }
+	@Override public void exitRollExp(inputParser.RollExpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterArithmeticOp(inputParser.ArithmeticOpContext ctx) { }
+	@Override public void enterSingleRollExp(inputParser.SingleRollExpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitArithmeticOp(inputParser.ArithmeticOpContext ctx) { }
+	@Override public void exitSingleRollExp(inputParser.SingleRollExpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConditionalExp(inputParser.ConditionalExpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConditionalExp(inputParser.ConditionalExpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterArithmeticExp(inputParser.ArithmeticExpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitArithmeticExp(inputParser.ArithmeticExpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterValueExp(inputParser.ValueExpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitValueExp(inputParser.ValueExpContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

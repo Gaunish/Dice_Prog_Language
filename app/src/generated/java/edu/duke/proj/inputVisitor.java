@@ -18,27 +18,52 @@ public interface inputVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProg(inputParser.ProgContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link inputParser#roll}.
+	 * Visit a parse tree produced by the {@code parensExp}
+	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitRoll(inputParser.RollContext ctx);
+	T visitParensExp(inputParser.ParensExpContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link inputParser#simpleRoll}.
+	 * Visit a parse tree produced by the {@code varExp}
+	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSimpleRoll(inputParser.SimpleRollContext ctx);
+	T visitVarExp(inputParser.VarExpContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link inputParser#exp}.
+	 * Visit a parse tree produced by the {@code rollExp}
+	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExp(inputParser.ExpContext ctx);
+	T visitRollExp(inputParser.RollExpContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link inputParser#arithmeticOp}.
+	 * Visit a parse tree produced by the {@code singleRollExp}
+	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitArithmeticOp(inputParser.ArithmeticOpContext ctx);
+	T visitSingleRollExp(inputParser.SingleRollExpContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code conditionalExp}
+	 * labeled alternative in {@link inputParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConditionalExp(inputParser.ConditionalExpContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ArithmeticExp}
+	 * labeled alternative in {@link inputParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArithmeticExp(inputParser.ArithmeticExpContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code valueExp}
+	 * labeled alternative in {@link inputParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitValueExp(inputParser.ValueExpContext ctx);
 }

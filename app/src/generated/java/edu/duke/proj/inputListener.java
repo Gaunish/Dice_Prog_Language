@@ -19,43 +19,87 @@ public interface inputListener extends ParseTreeListener {
 	 */
 	void exitProg(inputParser.ProgContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link inputParser#roll}.
+	 * Enter a parse tree produced by the {@code parensExp}
+	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
 	 */
-	void enterRoll(inputParser.RollContext ctx);
+	void enterParensExp(inputParser.ParensExpContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link inputParser#roll}.
+	 * Exit a parse tree produced by the {@code parensExp}
+	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
 	 */
-	void exitRoll(inputParser.RollContext ctx);
+	void exitParensExp(inputParser.ParensExpContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link inputParser#simpleRoll}.
+	 * Enter a parse tree produced by the {@code varExp}
+	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
 	 */
-	void enterSimpleRoll(inputParser.SimpleRollContext ctx);
+	void enterVarExp(inputParser.VarExpContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link inputParser#simpleRoll}.
+	 * Exit a parse tree produced by the {@code varExp}
+	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
 	 */
-	void exitSimpleRoll(inputParser.SimpleRollContext ctx);
+	void exitVarExp(inputParser.VarExpContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link inputParser#exp}.
+	 * Enter a parse tree produced by the {@code rollExp}
+	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
 	 */
-	void enterExp(inputParser.ExpContext ctx);
+	void enterRollExp(inputParser.RollExpContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link inputParser#exp}.
+	 * Exit a parse tree produced by the {@code rollExp}
+	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
 	 */
-	void exitExp(inputParser.ExpContext ctx);
+	void exitRollExp(inputParser.RollExpContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link inputParser#arithmeticOp}.
+	 * Enter a parse tree produced by the {@code singleRollExp}
+	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
 	 */
-	void enterArithmeticOp(inputParser.ArithmeticOpContext ctx);
+	void enterSingleRollExp(inputParser.SingleRollExpContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link inputParser#arithmeticOp}.
+	 * Exit a parse tree produced by the {@code singleRollExp}
+	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
 	 */
-	void exitArithmeticOp(inputParser.ArithmeticOpContext ctx);
+	void exitSingleRollExp(inputParser.SingleRollExpContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code conditionalExp}
+	 * labeled alternative in {@link inputParser#exp}.
+	 * @param ctx the parse tree
+	 */
+	void enterConditionalExp(inputParser.ConditionalExpContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code conditionalExp}
+	 * labeled alternative in {@link inputParser#exp}.
+	 * @param ctx the parse tree
+	 */
+	void exitConditionalExp(inputParser.ConditionalExpContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ArithmeticExp}
+	 * labeled alternative in {@link inputParser#exp}.
+	 * @param ctx the parse tree
+	 */
+	void enterArithmeticExp(inputParser.ArithmeticExpContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ArithmeticExp}
+	 * labeled alternative in {@link inputParser#exp}.
+	 * @param ctx the parse tree
+	 */
+	void exitArithmeticExp(inputParser.ArithmeticExpContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code valueExp}
+	 * labeled alternative in {@link inputParser#exp}.
+	 * @param ctx the parse tree
+	 */
+	void enterValueExp(inputParser.ValueExpContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code valueExp}
+	 * labeled alternative in {@link inputParser#exp}.
+	 * @param ctx the parse tree
+	 */
+	void exitValueExp(inputParser.ValueExpContext ctx);
 }
