@@ -4,8 +4,29 @@
 package edu.duke.proj;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.lang.Math;
 
 public class App {
+    public int evalRoll(String rollStr, HashMap<String, Integer> vals){
+        String str = "";
+        for(String s : vals.keySet()){
+            str += s + " = " + vals.get(s);
+        }
+        str += rollStr;
+
+        int no = (Math.rand() * 20) + 10;
+        str += String.Valueof(no);
+
+        ANTLRInputStream input = new ANTLRInputStream(str);
+        inputLexer lexer = new inputLexer(input);
+        CommonTokenStream tokenStream = new CommonTokenStream(lexer);
+        inputParser parser = new inputParser(tokenStream);
+        inputParser.ProgContext context = parser.prog();
+        ExpNode node = new BuildAstVisitor().visitProg(context);
+        String out = new AstTreeInfo().Visit(node);
+        return Integer.valueOf(out);
+    }
 
     public static void main(String[] args) throws IOException {
         new GrammarTest().test();
