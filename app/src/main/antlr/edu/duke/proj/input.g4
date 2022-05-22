@@ -1,24 +1,44 @@
 grammar input ;
 
-prog : exp EOF ;
+prog : exp;
 
-exp : Roll                                              # rollExp
-    | SingleRoll                                        # singleRollExp
-    | leftExp = exp op = ('*'|'/') rightExp = exp       # ArithmeticExp
-    | leftExp = exp op = ('+'|'-') rightExp = exp       # ArithmeticExp
-    | '(' exp ')'                                       # parensExp
-    | exp '?' exp ':' exp                               # conditionalExp
+exp : ROLL                                              # rollExp
+    | SINGLEROLL                                        # singleRollExp
+    | leftExp = exp op = (MUL|DIV) rightExp = exp       # arithmeticExp
+    | leftExp = exp op = (ADD|SUB) rightExp = exp       # arithmeticExp
+    | LPAREN exp RPAREN                                 # parensExp
+    | exp '?' exp COLON exp                             # conditionalExp
     | ID                                                # varExp
     | value = INT                                       # valueExp
+    | defType                                           # typeDefExp
+    | defFun                                            # funDefExp
+    |                                                   # nilExp
+
     ;
+
+defTypeBody : (ID COLON ID COMMA)* ;
+
+defType : DEFTYPEKEY ID LBRACE defTypeBody RBRACE ;
+
+fields : ID COLON ID (COMMA ID COLON ID)* ;
+
+defFun : DEFFUNKEY ID LPAREN fields RPAREN LBRACE exp RBRACE ;
 
 ADD: '+';
 SUB: '-';
 MUL: '*';
 DIV: '/';
-Roll : INT KEY INT ;
-SingleRoll  : KEY INT;
+COLON : ':';
+COMMA : ',' ;
+LPAREN : '(' ;
+RPAREN : ')' ;
+LBRACE : '{' ;
+RBRACE : '}' ;
+ROLL : INT ROLLKEY INT ;
+SINGLEROLL  : ROLLKEY INT;
 INT : [0-9]+ ;
-KEY : [d] ;
+ROLLKEY : [d] ;
+DEFTYPEKEY : 'deftype';
+DEFFUNKEY : 'deffun';
 ID : [a-zA-Z][0-9a-zA-Z]* ;
 WS: [ \t\r\n]+ -> skip ;
