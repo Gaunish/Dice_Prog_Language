@@ -2,12 +2,12 @@ grammar input ;
 
 prog : exp;
 
-exp : ROLL                                              # rollExp
-    | SINGLEROLL                                        # singleRollExp
+exp : roll                                              # rollExp
+    | singleRoll                                        # singleRollExp
     | leftExp = exp op = (MUL|DIV) rightExp = exp       # arithmeticExp
     | leftExp = exp op = (ADD|SUB) rightExp = exp       # arithmeticExp
     | LPAREN exp RPAREN                                 # parensExp
-    | exp '?' exp COLON exp                             # conditionalExp
+    | cond = exp '?' opt1 = exp COLON opt2 = exp        # conditionalExp
     | ID                                                # varExp
     | value = INT                                       # valueExp
     | defType                                           # typeDefExp
@@ -15,6 +15,9 @@ exp : ROLL                                              # rollExp
     |                                                   # nilExp
 
     ;
+roll : times = INT ROLLKEY sides = INT ;
+
+singleRoll : ROLLKEY sides = INT;
 
 defTypeBody : (ID COLON ID COMMA)* ;
 
@@ -34,8 +37,6 @@ LPAREN : '(' ;
 RPAREN : ')' ;
 LBRACE : '{' ;
 RBRACE : '}' ;
-ROLL : INT ROLLKEY INT ;
-SINGLEROLL  : ROLLKEY INT;
 INT : [0-9]+ ;
 ROLLKEY : [d] ;
 DEFTYPEKEY : 'deftype';

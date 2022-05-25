@@ -1,18 +1,22 @@
 package edu.duke.proj;
 
-public class RollNode extends ExpNode {
-    AstNode times;
-    AstNode sides;
+import java.util.HashMap;
+import java.util.Random;
 
-    public AstNode getSides() {
+public class RollNode extends ExpNode {
+    ExpNode times;
+    ExpNode sides;
+
+    public ExpNode getSides() {
         return sides;
     }
-    public AstNode getTimes() {
+    public ExpNode getTimes() {
         return times;
     }
 
+
     @Override
-    public String getType() {
-        return "Roll";
+    public Integer eval(HashMap<String, Integer> vars, Random randNumGen) {
+        return null;
     }
 }

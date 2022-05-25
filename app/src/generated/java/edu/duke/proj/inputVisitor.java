@@ -32,6 +32,27 @@ public interface inputVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVarExp(inputParser.VarExpContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code typeDefExp}
+	 * labeled alternative in {@link inputParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTypeDefExp(inputParser.TypeDefExpContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code nilExp}
+	 * labeled alternative in {@link inputParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNilExp(inputParser.NilExpContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code arithmeticExp}
+	 * labeled alternative in {@link inputParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArithmeticExp(inputParser.ArithmeticExpContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code rollExp}
 	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
@@ -46,6 +67,13 @@ public interface inputVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSingleRollExp(inputParser.SingleRollExpContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code funDefExp}
+	 * labeled alternative in {@link inputParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunDefExp(inputParser.FunDefExpContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code conditionalExp}
 	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
@@ -53,17 +81,46 @@ public interface inputVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitConditionalExp(inputParser.ConditionalExpContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ArithmeticExp}
-	 * labeled alternative in {@link inputParser#exp}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitArithmeticExp(inputParser.ArithmeticExpContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code valueExp}
 	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitValueExp(inputParser.ValueExpContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link inputParser#roll}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRoll(inputParser.RollContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link inputParser#singleRoll}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSingleRoll(inputParser.SingleRollContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link inputParser#defTypeBody}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDefTypeBody(inputParser.DefTypeBodyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link inputParser#defType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDefType(inputParser.DefTypeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link inputParser#fields}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFields(inputParser.FieldsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link inputParser#defFun}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDefFun(inputParser.DefFunContext ctx);
 }

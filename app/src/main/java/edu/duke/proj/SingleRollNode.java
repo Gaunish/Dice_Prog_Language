@@ -1,13 +1,17 @@
 package edu.duke.proj;
 
+import java.util.HashMap;
+import java.util.Random;
+
 public class SingleRollNode extends ExpNode {
-    AstNode sides;
-    public AstNode getSides() {
+    ExpNode sides;
+
+    public ExpNode getSides() {
         return sides;
     }
 
     @Override
-    public String getType() {
-        return "SingleRoll";
+    public Integer eval(HashMap<String, Integer> vars, Random randNumGen) {
+        return null;
     }
 }

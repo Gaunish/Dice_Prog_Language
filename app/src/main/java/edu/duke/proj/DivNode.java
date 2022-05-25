@@ -1,9 +1,12 @@
 package edu.duke.proj;
 
+import java.util.HashMap;
+import java.util.Random;
+
 public class DivNode extends ArithmeticNode {
 
     @Override
-    public String getType() {
-        return "Div";
+    public Integer eval(HashMap<String, Integer> vars, Random randNumGen) {
+        return this.leftExp.eval(vars, randNumGen) / this.rightExp.eval(vars, randNumGen);
     }
 }
