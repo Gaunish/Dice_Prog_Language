@@ -139,26 +139,6 @@ public interface inputListener extends ParseTreeListener {
 	 */
 	void exitValueExp(inputParser.ValueExpContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link inputParser#roll}.
-	 * @param ctx the parse tree
-	 */
-	void enterRoll(inputParser.RollContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link inputParser#roll}.
-	 * @param ctx the parse tree
-	 */
-	void exitRoll(inputParser.RollContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link inputParser#singleRoll}.
-	 * @param ctx the parse tree
-	 */
-	void enterSingleRoll(inputParser.SingleRollContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link inputParser#singleRoll}.
-	 * @param ctx the parse tree
-	 */
-	void exitSingleRoll(inputParser.SingleRollContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link inputParser#defTypeBody}.
 	 * @param ctx the parse tree
 	 */

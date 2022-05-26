@@ -88,18 +88,6 @@ public interface inputVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitValueExp(inputParser.ValueExpContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link inputParser#roll}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRoll(inputParser.RollContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link inputParser#singleRoll}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSingleRoll(inputParser.SingleRollContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link inputParser#defTypeBody}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

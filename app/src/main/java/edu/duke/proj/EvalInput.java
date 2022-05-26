@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 
 //refer to The Definitive ANTLR 4 Reference
-public class GrammarTest {
+public class EvalInput {
     public static void test1() throws IOException {
         ANTLRInputStream input = new ANTLRInputStream("1+1");
         inputLexer lexer = new inputLexer(input);
@@ -19,7 +19,6 @@ public class GrammarTest {
 
     }
     public int evalRoll(String rollStr, HashMap<String, Integer> vars, java.util.Random randNumGen){
-        //HashMap<String, Integer> vars, java.util.Random randNumGen
         ANTLRInputStream input = new ANTLRInputStream(rollStr);
         inputLexer lexer = new inputLexer(input);
         CommonTokenStream tokenStream = new CommonTokenStream(lexer);

@@ -2,8 +2,8 @@ grammar input ;
 
 prog : exp;
 
-exp : roll                                              # rollExp
-    | singleRoll                                        # singleRollExp
+exp : ROLL                                              # rollExp
+    | SINGLEROLL                                        # singleRollExp
     | leftExp = exp op = (MUL|DIV) rightExp = exp       # arithmeticExp
     | leftExp = exp op = (ADD|SUB) rightExp = exp       # arithmeticExp
     | LPAREN exp RPAREN                                 # parensExp
@@ -13,11 +13,7 @@ exp : roll                                              # rollExp
     | defType                                           # typeDefExp
     | defFun                                            # funDefExp
     |                                                   # nilExp
-
     ;
-roll : times = INT ROLLKEY sides = INT ;
-
-singleRoll : ROLLKEY sides = INT;
 
 defTypeBody : (ID COLON ID COMMA)* ;
 
@@ -37,6 +33,8 @@ LPAREN : '(' ;
 RPAREN : ')' ;
 LBRACE : '{' ;
 RBRACE : '}' ;
+ROLL : INT ROLLKEY INT ;
+SINGLEROLL : ROLLKEY INT;
 INT : [0-9]+ ;
 ROLLKEY : [d] ;
 DEFTYPEKEY : 'deftype';

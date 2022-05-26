@@ -54,4 +54,14 @@ public class BuildAstVisitor extends inputBaseVisitor<ExpNode>{
     public ExpNode visitVarExp(inputParser.VarExpContext ctx) {
         return new VarNode(String.valueOf(ctx.ID().getText()));
     }
+
+    @Override
+    public ExpNode visitSingleRollExp(inputParser.SingleRollExpContext ctx) {
+        return new SingleRollNode(String.valueOf(ctx.SINGLEROLL().getText()));
+    }
+
+    @Override
+    public ExpNode visitRollExp(inputParser.RollExpContext ctx) {
+        return new RollNode(String.valueOf(ctx.ROLL().getText()));
+    }
 }

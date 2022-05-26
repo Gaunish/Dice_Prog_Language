@@ -10,6 +10,11 @@ public class ConditionalNode extends ExpNode{
 
     @Override
     public Integer eval(HashMap<String, Integer> vars, Random randNumGen) {
-        return null;
+        if (condExp.eval(vars, randNumGen) != 0){
+            System.out.println("ConsitionalExp cond: true");
+            return opt1Exp.eval(vars, randNumGen);
+        }
+        System.out.println("ConsitionalExp cond: false");
+        return opt2Exp.eval(vars, randNumGen);
     }
 }
