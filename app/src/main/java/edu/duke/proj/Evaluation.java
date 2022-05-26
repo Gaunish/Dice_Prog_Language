@@ -11,6 +11,6 @@ public class Evaluation {
     public static void main(String[] args) throws IOException {
         HashMap vars = new HashMap<String, Integer>();
         vars.put("invisible", 0);
-        new EvalInput().evalRoll("d3 + (invisible?(1 + 3d30):(2*2d3))", vars, new Random());
+        new EvalInput().evalRoll("(1 + 23d3 + 2)", vars, new Random());
     }
 }

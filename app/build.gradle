@@ -30,7 +30,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'edu.duke.proj.App'
+    mainClass = 'edu.duke.proj.Evaluation'
 }
 
 tasks.named('test') {

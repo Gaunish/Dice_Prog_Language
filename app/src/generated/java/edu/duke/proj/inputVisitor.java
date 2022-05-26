@@ -18,6 +18,12 @@ public interface inputVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProg(inputParser.ProgContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link inputParser#exps}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExps(inputParser.ExpsContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code parensExp}
 	 * labeled alternative in {@link inputParser#exp}.
 	 * @param ctx the parse tree
@@ -45,6 +51,13 @@ public interface inputVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitNilExp(inputParser.NilExpContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expList}
+	 * labeled alternative in {@link inputParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpList(inputParser.ExpListContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code arithmeticExp}
 	 * labeled alternative in {@link inputParser#exp}.

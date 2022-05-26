@@ -1,5 +1,6 @@
 package edu.duke.proj;
 
+//build AST tree
 public class BuildAstVisitor extends inputBaseVisitor<ExpNode>{
     @Override
     public ExpNode visitProg(inputParser.ProgContext ctx) {

@@ -2,6 +2,9 @@ grammar input ;
 
 prog : exp;
 
+exps : exp
+       |exp SEMICOLON exps;
+
 exp : ROLL                                              # rollExp
     | SINGLEROLL                                        # singleRollExp
     | leftExp = exp op = (MUL|DIV) rightExp = exp       # arithmeticExp
@@ -13,6 +16,7 @@ exp : ROLL                                              # rollExp
     | defType                                           # typeDefExp
     | defFun                                            # funDefExp
     |                                                   # nilExp
+    | LPAREN exps RPAREN                                # expList
     ;
 
 defTypeBody : (ID COLON ID COMMA)* ;
@@ -33,6 +37,7 @@ LPAREN : '(' ;
 RPAREN : ')' ;
 LBRACE : '{' ;
 RBRACE : '}' ;
+SEMICOLON : ';' ;
 ROLL : INT ROLLKEY INT ;
 SINGLEROLL : ROLLKEY INT;
 INT : [0-9]+ ;

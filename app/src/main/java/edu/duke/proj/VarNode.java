@@ -3,6 +3,7 @@ package edu.duke.proj;
 import java.util.HashMap;
 import java.util.Random;
 
+
 public class VarNode extends ExpNode{
     String ID;
     public VarNode(String ID){
