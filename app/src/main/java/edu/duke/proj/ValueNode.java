@@ -1,5 +1,8 @@
 package edu.duke.proj;
 
+import java.util.HashMap;
+import java.util.Random;
+
 public class ValueNode extends ExpNode {
     private int value;
     public ValueNode(int input){
@@ -10,7 +13,7 @@ public class ValueNode extends ExpNode {
     }
 
     @Override
-    public String getType() {
-        return "Value";
+    public Integer eval(HashMap<String, Integer> vars, Random randNumGen) {
+        return this.value;
     }
 }

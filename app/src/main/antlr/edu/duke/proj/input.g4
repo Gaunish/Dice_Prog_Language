@@ -7,13 +7,12 @@ exp : ROLL                                              # rollExp
     | leftExp = exp op = (MUL|DIV) rightExp = exp       # arithmeticExp
     | leftExp = exp op = (ADD|SUB) rightExp = exp       # arithmeticExp
     | LPAREN exp RPAREN                                 # parensExp
-    | exp '?' exp COLON exp                             # conditionalExp
+    | cond = exp '?' opt1 = exp COLON opt2 = exp        # conditionalExp
     | ID                                                # varExp
     | value = INT                                       # valueExp
     | defType                                           # typeDefExp
     | defFun                                            # funDefExp
     |                                                   # nilExp
-
     ;
 
 defTypeBody : (ID COLON ID COMMA)* ;
@@ -35,7 +34,7 @@ RPAREN : ')' ;
 LBRACE : '{' ;
 RBRACE : '}' ;
 ROLL : INT ROLLKEY INT ;
-SINGLEROLL  : ROLLKEY INT;
+SINGLEROLL : ROLLKEY INT;
 INT : [0-9]+ ;
 ROLLKEY : [d] ;
 DEFTYPEKEY : 'deftype';

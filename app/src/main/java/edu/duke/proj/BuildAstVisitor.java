@@ -8,7 +8,7 @@ public class BuildAstVisitor extends inputBaseVisitor<ExpNode>{
 
     @Override
     public ExpNode visitValueExp(inputParser.ValueExpContext ctx) {
-        return visit(ctx.INT());
+        return new ValueNode(Integer.valueOf(ctx.INT().getText()));
     }
 
     @Override
@@ -41,4 +41,27 @@ public class BuildAstVisitor extends inputBaseVisitor<ExpNode>{
         return node;
     }
 
+    @Override
+    public ExpNode visitConditionalExp(inputParser.ConditionalExpContext ctx) {
+        ConditionalNode node = new ConditionalNode();
+        node.condExp = visit(ctx.cond);
+        node.opt1Exp = visit(ctx.opt1);
+        node.opt2Exp = visit(ctx.opt2);
+        return node;
+    }
+
+    @Override
+    public ExpNode visitVarExp(inputParser.VarExpContext ctx) {
+        return new VarNode(String.valueOf(ctx.ID().getText()));
+    }
+
+    @Override
+    public ExpNode visitSingleRollExp(inputParser.SingleRollExpContext ctx) {
+        return new SingleRollNode(String.valueOf(ctx.SINGLEROLL().getText()));
+    }
+
+    @Override
+    public ExpNode visitRollExp(inputParser.RollExpContext ctx) {
+        return new RollNode(String.valueOf(ctx.ROLL().getText()));
+    }
 }
